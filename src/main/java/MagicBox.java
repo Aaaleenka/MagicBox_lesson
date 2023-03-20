@@ -27,15 +27,21 @@ public class MagicBox<T> {
         } else throw new RuntimeException("Коробка не полна, осталось заполнить " + (item.length - num) + " ячеек");
     }
 
-    StringBuilder builder = new StringBuilder();
-
     @Override
     public String toString() {
-        String text = "";
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < item.length; i++) {
             builder.append(item[i]);
-            builder.append(" ");
+            builder.append(",");
         }
         return builder.toString();
+    }
+
+    public T getItem(int i) {
+        return item[i];
+    }
+
+    public int getSize(){
+        return item.length;
     }
 }
